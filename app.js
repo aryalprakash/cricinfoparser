@@ -2,7 +2,7 @@ var fs = require('fs');
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 
-const folder="odi";
+const folder="test";
 
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 const csvWriter = createCsvWriter({
