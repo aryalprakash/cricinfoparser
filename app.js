@@ -81,6 +81,12 @@ function prepareData(filename){
                         }
                     }
                     console.log(data.name, 'added')
+                    // csvWriter
+                    // .writeRecords(data)
+                    // .then(()=> console.log(data.name, 'csv was written successfully'))
+                    // .catch(err=>{
+                    //     console.log(err)
+                    // });
                     resolve(data)
                 }
             }
@@ -94,9 +100,7 @@ function generateCSV(htmlFiles){
         htmlFiles.map(async(filename, index)=>{
             prepareData(filename).then(result=>{
                 row.push(result);
-
-                if(index===htmlFiles.length-1){
-                    console.log(row)
+                if(row.length===htmlFiles.length){
                     csvWriter
                     .writeRecords(row)
                     .then(()=> console.log('csv was written successfully'))
