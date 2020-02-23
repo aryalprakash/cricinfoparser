@@ -2,7 +2,7 @@ var fs = require('fs');
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 
-const folder="t20";
+const folder="odi";
 
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 const csvWriter = createCsvWriter({
@@ -94,7 +94,9 @@ function generateCSV(htmlFiles){
         htmlFiles.map(async(filename, index)=>{
             prepareData(filename).then(result=>{
                 row.push(result);
+
                 if(index===htmlFiles.length-1){
+                    console.log(row)
                     csvWriter
                     .writeRecords(row)
                     .then(()=> console.log('csv was written successfully'))
